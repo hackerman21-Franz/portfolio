@@ -1,0 +1,590 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Franz Boniparte Robles | Portfolio</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root{
+    --bg-primary:#050816;
+    --bg-secondary:#0F172A;
+    --card-bg:rgba(17,24,39,.7);
+    --powder-blue:#B0E0E6;
+    --powder-blue-light:#D6F1F5;
+    --text-primary:#FFFFFF;
+    --text-secondary:#94A3B8;
+    --border:rgba(176,224,230,.15);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--bg-primary);
+    color:var(--text-primary);
+    overflow-x:hidden;
+}
+
+/* Background Glow */
+
+.bg-blur{
+    position:fixed;
+    border-radius:50%;
+    filter:blur(120px);
+    z-index:-1;
+}
+
+.one{
+    width:400px;
+    height:400px;
+    background:rgba(176,224,230,.12);
+    top:-100px;
+    right:-100px;
+}
+
+.two{
+    width:350px;
+    height:350px;
+    background:rgba(176,224,230,.08);
+    bottom:-100px;
+    left:-100px;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* Navbar */
+
+.navbar{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:rgba(5,8,22,.85);
+    backdrop-filter:blur(20px);
+    z-index:1000;
+    border-bottom:1px solid var(--border);
+}
+
+.navbar .container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 0;
+}
+
+.logo{
+    color:var(--powder-blue);
+    font-size:1.3rem;
+    font-weight:700;
+}
+
+.nav-links{
+    display:flex;
+    gap:15px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:white;
+    padding:10px 18px;
+    border-radius:30px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    background:var(--powder-blue);
+    color:#050816;
+}
+
+/* Hero */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+}
+
+.hero-content{
+    max-width:800px;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 18px;
+    background:rgba(176,224,230,.1);
+    border:1px solid rgba(176,224,230,.2);
+    color:var(--powder-blue);
+    border-radius:30px;
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-size:3rem;
+    line-height:1.2;
+    margin-bottom:20px;
+    font-weight:800;
+}
+
+.hero h1 span{
+    color:var(--powder-blue);
+}
+
+.hero p{
+    color:var(--text-secondary);
+    font-size:1.15rem;
+    line-height:1.8;
+    max-width:700px;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:15px 30px;
+    background:var(--powder-blue);
+    color:#050816;
+    text-decoration:none;
+    border-radius:40px;
+    font-weight:700;
+}
+
+/* Sections */
+
+section{
+    padding:100px 0;
+}
+
+.section-title{
+    font-size:2.5rem;
+    color:var(--powder-blue);
+    margin-bottom:40px;
+}
+
+/* Cards */
+
+.card{
+    background:var(--card-bg);
+    backdrop-filter:blur(15px);
+    border:1px solid var(--border);
+    border-radius:25px;
+    padding:35px;
+}
+
+/* Stats */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    margin-top:40px;
+}
+
+.stat{
+    background:var(--card-bg);
+    border:1px solid var(--border);
+    border-radius:25px;
+    padding:30px;
+    text-align:center;
+}
+
+.stat h2{
+    color:var(--powder-blue);
+    font-size:2.5rem;
+}
+
+/* Skills */
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+.skill{
+    padding:12px 20px;
+    border-radius:30px;
+    border:1px solid rgba(176,224,230,.2);
+    background:rgba(176,224,230,.08);
+    color:var(--powder-blue);
+    transition:.3s;
+}
+
+.skill:hover{
+    background:var(--powder-blue);
+    color:#050816;
+}
+
+/* Projects */
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:25px;
+}
+
+.project{
+    background:var(--card-bg);
+    border:1px solid var(--border);
+    border-radius:25px;
+    overflow:hidden;
+    transition:.4s;
+}
+
+.project:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 30px rgba(176,224,230,.15);
+}
+
+.project-image{
+    height:180px;
+    background:linear-gradient(135deg,#0F172A,#1E293B);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:4rem;
+    color:var(--powder-blue);
+}
+
+.project-content{
+    padding:25px;
+}
+
+.project-content h3{
+    margin-bottom:15px;
+}
+
+.tech{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:15px;
+}
+
+.tech span{
+    background:rgba(176,224,230,.1);
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:.8rem;
+    color:var(--powder-blue);
+}
+
+/* Contact */
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.contact-box{
+    background:var(--card-bg);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:20px;
+}
+
+.contact-box i{
+    color:var(--powder-blue);
+    margin-right:10px;
+}
+
+/* Footer */
+
+footer{
+    padding:40px;
+    text-align:center;
+    color:var(--text-secondary);
+    border-top:1px solid var(--border);
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:3rem;
+}
+
+.navbar .container{
+    flex-direction:column;
+    gap:15px;
+}
+
+.nav-links{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.stats{
+    grid-template-columns:1fr;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg-blur one"></div>
+<div class="bg-blur two"></div>
+
+<nav class="navbar">
+    <div class="container">
+        <div class="logo">My Portfolio</div>
+
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="container hero-content">
+
+        <div class="badge">
+            <i class="fas fa-laptop-code"></i>
+            Internship Portfolio 2026
+        </div>
+
+        <h1>
+            
+    <span>Franz Boniparte Robles</span><br>
+    Information Technology Intern
+</h1>
+
+        <p>
+            Bachelor of Science in Information Technology student at the
+            University of Mindanao with experience in developing
+            web-based information systems, database-driven applications,
+            and management platforms using Laravel, ASP.NET Core,
+            MySQL, SQL Server, and modern technologies.
+        </p>
+
+        <a href="#projects" class="btn">
+            View Projects
+        </a>
+
+    </div>
+</section>
+
+<section id="about">
+    <div class="container">
+
+        <h2 class="section-title">About Me</h2>
+
+        <div class="card">
+            <p>
+                I am an aspiring software developer passionate about
+                building practical systems that solve real-world problems.
+                Throughout my academic journey, I have designed and
+                developed multiple management systems, booking platforms,
+                and database applications while improving my skills in
+                software engineering, UI/UX design, and system analysis.
+            </p>
+        </div>
+
+        <div class="stats">
+
+            <div class="stat">
+                <h2>4+</h2>
+                <p>Major Systems Developed</p>
+            </div>
+
+            <div class="stat">
+                <h2>10+</h2>
+                <p>Technologies Used</p>
+            </div>
+
+            <div class="stat">
+                <h2>4+</h2>
+                <p>Years Learning Development</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<section id="skills">
+    <div class="container">
+
+        <h2 class="section-title">Technical Skills</h2>
+
+        <div class="skills">
+            <div class="skill">HTML5</div>
+            <div class="skill">CSS3</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">PHP</div>
+            <div class="skill">Laravel</div>
+            <div class="skill">ASP.NET Core</div>
+            <div class="skill">C#</div>
+            <div class="skill">MySQL</div>
+            <div class="skill">SQL Server</div>
+            <div class="skill">Tailwind CSS</div>
+            <div class="skill">Git & GitHub</div>
+            <div class="skill">Database Design</div>
+            <div class="skill">System Analysis</div>
+            <div class="skill">Technical Documentation</div>
+        </div>
+
+    </div>
+</section>
+
+<section id="projects">
+    <div class="container">
+
+        <h2 class="section-title">Featured Projects</h2>
+
+        <div class="projects">
+
+            <div class="project">
+                <div class="project-image">
+                    <i class="fas fa-umbrella-beach"></i>
+                </div>
+
+                <div class="project-content">
+                    <h3>Samal Explorer</h3>
+
+                    <p>
+                        Resort booking platform with collaborative
+                        filtering recommendations and immersive
+                        360° virtual tours.
+                    </p>
+
+                    <div class="tech">
+                        <span>Laravel</span>
+                        <span>PHP</span>
+                        <span>MySQL</span>
+                        <span>Tailwind</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-image">
+                    <i class="fas fa-building"></i>
+                </div>
+
+                <div class="project-content">
+                    <h3>Dormitory Management System</h3>
+
+                    <p>
+                        Tenant management, utility billing,
+                        meter readings, and room monitoring system.
+                    </p>
+
+                    <div class="tech">
+                        <span>ASP.NET Core</span>
+                        <span>C#</span>
+                        <span>SQL Server</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-image">
+                    <i class="fas fa-cut"></i>
+                </div>
+
+                <div class="project-content">
+                    <h3>Gent's Row Barbershop</h3>
+
+                    <p>
+                        Appointment scheduling, inventory management,
+                        sales reports, and customer management.
+                    </p>
+
+                    <div class="tech">
+                        <span>Laravel</span>
+                        <span>PHP</span>
+                        <span>MySQL</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-image">
+                    <i class="fas fa-soap"></i>
+                </div>
+
+                <div class="project-content">
+                    <h3>Elsy Marie Laundry Shop</h3>
+
+                    <p>
+                        Laundry transaction tracking, inventory
+                        monitoring, and sales reporting system.
+                    </p>
+
+                    <div class="tech">
+                        <span>Laravel</span>
+                        <span>PHP</span>
+                        <span>MySQL</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<section id="contact">
+    <div class="container">
+
+        <h2 class="section-title">Contact</h2>
+
+        <div class="contact-grid">
+
+            <div class="contact-box">
+                <i class="fas fa-user"></i>
+                Franz Boniparte Robles
+            </div>
+
+            <div class="contact-box">
+                <i class="fas fa-university"></i>
+                University of Mindanao
+            </div>
+
+            <div class="contact-box">
+                <i class="fas fa-envelope"></i>
+                your-email@example.com
+            </div>
+
+            <div class="contact-box">
+                <i class="fab fa-github"></i>
+                github.com/yourusername
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    © 2026 Franz Boniparte Robles • Pre-OJT Portfolio
+</footer>
+
+</body>
+</html>
+```
